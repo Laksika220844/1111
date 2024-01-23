@@ -1,0 +1,88 @@
+﻿@model WebApplication1.Models.Home
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+    <center>
+        <h1 style="font-size:60px;">Infinit</h1>
+    <a asp-controller="Home" asp-action="Register">Register</a>
+
+        <h3>@Model.Title</h3>
+
+        <div class="btn-group">
+            <center>
+            <input type="button" value="สำหรับลูกค้า" id="btnEmployee"/>
+            <input type="button" value="สำหรับพนักงาน" id="btnUser" />
+
+        </div>
+        <div class="container">
+            <br>
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+            <br>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+            <br>
+            <label>
+            <input type="button" value="Login" id="btnHome" />
+                <br>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+            <br>
+        </div>
+
+
+
+<style>
+    .btn-group button {
+        background-color: #White; /* Green background */
+        border: 1px solid black; /* Green border */
+        color: black; /* White text */
+        padding: 10px 25px; /* Some padding */
+        cursor: pointer; /* Pointer/hand icon */
+        float: center; /* Float the buttons side by side */
+    }
+
+    /* Clear floats (clearfix hack) */
+    .btn-group:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .btn-group button:not(:last-child) {
+        border-right: none; /* Prevent double borders */
+    }
+
+    /* Add a background color on hover */
+    .btn-group button:hover {
+        background-color: #F0F8FF;
+    }
+
+        .container {
+            text-align: center;
+        }
+
+            .container label, .container input, .container button, .container input[type="checkbox"] {
+                margin-bottom: 10px; /* Adjust the value as needed for spacing */
+            }
+</style>
+    @* $("#input") = id
+       $(".input") = class
+       $("input") = tag
+    *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    $("#btnEmployee").click(function () {
+            window.location.href = '@Url.Action("Index", "Employee")'
+    })
+
+    $("#btnUser").click(function () {
+            window.location.href = '@Url.Action("Index", "User")'
+    })
+</script>
+        
+
+
+
